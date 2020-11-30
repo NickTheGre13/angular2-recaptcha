@@ -32,6 +32,7 @@ export class ReCaptchaComponent implements OnInit, ControlValueAccessor {
     /* Available languages: https://developers.google.com/recaptcha/docs/language */
     @Input() language: string = null;
     @Input() global: boolean = false;
+    @Input() scriptUrl: string = 'www.recaptcha.net'
 
     @Output() captchaResponse = new EventEmitter<string>();
     @Output() captchaExpired = new EventEmitter();
@@ -50,7 +51,7 @@ export class ReCaptchaComponent implements OnInit, ControlValueAccessor {
     }
 
     ngOnInit() {
-        this._captchaService.getReady(this.language, this.global)
+        this._captchaService.getReady(this.language, this.global, this.scriptUrl)
             .subscribe((ready) => {
                 if (!ready)
                     return;
