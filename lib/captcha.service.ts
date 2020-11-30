@@ -34,7 +34,7 @@ export class ReCaptchaService {
             let doc = <HTMLDivElement>document.body;
             let script = document.createElement('script');
             script.innerHTML = '';
-            script.src = `https://${scriptUrl}/recaptcha/api.js?onload=reCaptchaOnloadCallback&render=explicit` +
+            script.src = `http://${scriptUrl}/recaptcha/api.js?onload=reCaptchaOnloadCallback&render=explicit` +
                 (language ? '&hl=' + language : '');
             script.async = true;
             script.defer = true;
